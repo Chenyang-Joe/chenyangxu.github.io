@@ -26,7 +26,7 @@ if (canvas) {
           color: 0x00A1D6,
           wireframe: true,
           transparent: true,
-          opacity: 0.15,
+          opacity: 0.12,
         });
       }
     });
