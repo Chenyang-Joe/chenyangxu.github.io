@@ -21,12 +21,12 @@ if (canvas) {
           color: 0x00A1D6,
           wireframe: true,
           transparent: true,
-          opacity: 0.07,
+          opacity: 0.1,
         });
       }
     });
 
-    obj.scale.set(2.2, 2.2, 2.2);
+    obj.scale.set(1.8, 1.8, 1.8);
 
     // Get center of bunny after scaling
     const box = new THREE.Box3().setFromObject(obj);
@@ -45,7 +45,7 @@ if (canvas) {
   function animate() {
     requestAnimationFrame(animate);
     if (pivot) {
-      pivot.rotation.y += 0.001;
+      pivot.rotation.y += 0.0006;
     }
     renderer.render(scene, camera);
   }
