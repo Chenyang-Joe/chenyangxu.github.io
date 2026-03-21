@@ -4,7 +4,7 @@
 
 // Post content background (sits over bunny canvas)
 .post {
-  background: rgb(255 255 255 / 0.55);
+  background: var(--post-bg-color);
   border-radius: 12px;
   padding: 2rem 2.5rem 1rem;
   margin-left: -2.5rem;
@@ -14,7 +14,6 @@
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
 
   html[data-theme="dark"] & {
-    background: rgba(30, 30, 30, 0.65);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
   }
 }
