@@ -5,7 +5,7 @@ const canvas = document.getElementById('bunny-bg');
 if (canvas) {
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
@@ -39,20 +39,33 @@ if (canvas) {
     obj.position.set(-center.x, -center.y, -center.z);
 
     pivot = new THREE.Group();
-    pivot.position.set(center.x - 0.03, center.y - 0.285, center.z);
+    const isMobile = window.innerWidth < 576;
+    pivot.position.set(
+      isMobile ? center.x + 0.15 : center.x - 0.03,
+      center.y - 0.285,
+      center.z
+    );
     // Face the bunny toward the user
     pivot.rotation.y = Math.PI / 18;
     pivot.add(obj);
     scene.add(pivot);
   });
 
-  // Track mouse position for subtle sway
-  document.addEventListener('mousemove', function (e) {
-    const x = (e.clientX / window.innerWidth - 0.5) * 2;
-    const y = (e.clientY / window.innerHeight - 0.5) * 2;
+  // Track mouse/touch position for subtle sway
+  function updateTarget(clientX, clientY) {
+    const x = (clientX / window.innerWidth - 0.5) * 2;
+    const y = (clientY / window.innerHeight - 0.5) * 2;
     targetRotY = Math.PI / 18 + x * 0.15;
     targetRotX = -y * 0.08;
+  }
+  document.addEventListener('mousemove', function (e) {
+    updateTarget(e.clientX, e.clientY);
   });
+  document.addEventListener('touchmove', function (e) {
+    if (e.touches.length > 0) {
+      updateTarget(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: true });
 
   function animate() {
     requestAnimationFrame(animate);

@@ -290,3 +290,27 @@ ul.task-list input[type="checkbox"] {
 .d2h-diff-table {
   position: relative;
 }
+
+// Mobile adaptation
+@media (max-width: 576px) {
+  .post {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 1.2rem 1rem 0.8rem;
+    border-radius: 8px;
+    --post-bg-color: rgba(255, 255, 255, 0.35);
+  }
+
+  .section-card {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .profile.float-right {
+    float: none !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    width: 60%;
+  }
+}
