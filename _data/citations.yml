@@ -1,11 +1,11 @@
 metadata:
-  last_updated: '2026-03-27'
+  last_updated: '2026-04-22'
 papers:
   WzyZjRcAAAAJ:u-x6o8ySG0sC:
     citations: 0
     title: 'CRAG: Can 3D Generative Models Help 3D Assembly?'
     year: '2026'
   WzyZjRcAAAAJ:u5HHmVD_uO8C:
-    citations: 8
+    citations: 9
     title: 'Garf: Learning generalizable 3d reassembly for real-world fractures'
     year: '2025'
